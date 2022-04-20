@@ -1,19 +1,32 @@
-$( document ).ready(function() {
-  
+$( document ).ready(function() {  
   $('.wrapper').empty();
-  let s = '';
-  for(let i=0; i<126; i++){
-    s+='<div class="item"></div>';
+  for(let i=0; i<108; i++){
+    $('.wrapper').append('<div class="item"></div>');
   }
-  $('.wrapper').append(s)
-
-
-
-
+  
+  document.addEventListener('mousemove', (e) => {	
+    const sqrs = document.querySelectorAll('.item');
+      
+    const mouseX = e.pageX;
+    const mouseY = e.pageY;
+    
+    sqrs.forEach(sqr => {
+      const sqrX = sqr.offsetLeft + 10;
+      const sqrY = sqr.offsetTop + 10;
+  
+      const diffX = mouseX - sqrX;
+      const diffY = mouseY - sqrY;
+      
+      const radians = Math.atan2(diffY, diffX);
+          
+      const angle = radians * 180 / Math.PI;
+      
+      sqr.style.transform = `rotate(${angle}deg)`;
+    })
+    
+  });
+  
 });
-
-
-
 
 
 $('.sAHTI>button').click(function() {
@@ -117,67 +130,43 @@ $('.sAHTI>button').click(function() {
 
 
 var multipleCardCarousel = document.querySelector(
-    "#carouselExampleControls"
-  );
-  if (window.matchMedia("(min-width: 768px)").matches) {
-    var carousel = new bootstrap.Carousel(multipleCardCarousel, {
-      interval: false,
-    });
-    var carouselWidth = $(".carousel-inner")[0].scrollWidth;
-    var cardWidth = $(".carousel-item").width();
-    var scrollPosition = 0;
-    $("#carouselExampleControls .carousel-control-next").on("click", function () {
-      if (scrollPosition < carouselWidth - cardWidth * 4) {
-        scrollPosition += cardWidth;
-        $("#carouselExampleControls .carousel-inner").animate(
-          { scrollLeft: scrollPosition },
-          600
-        );
-      }
-    });
-    $("#carouselExampleControls .carousel-control-prev").on("click", function () {
-      if (scrollPosition > 0) {
-        scrollPosition -= cardWidth;
-        $("#carouselExampleControls .carousel-inner").animate(
-          { scrollLeft: scrollPosition },
-          600
-        );
-      }
-    });
-  } else {
-    $(multipleCardCarousel).addClass("slide");
-  }
+  "#carouselExampleControls"
+);
+if (window.matchMedia("(min-width: 768px)").matches) {
+  var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+    interval: false,
+  });
+  var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+  var cardWidth = $(".carousel-item").width();
+  var scrollPosition = 0;
+  $("#carouselExampleControls .carousel-control-next").on("click", function () {
+    if (scrollPosition < carouselWidth - cardWidth * 4) {
+      scrollPosition += cardWidth;
+      $("#carouselExampleControls .carousel-inner").animate(
+        { scrollLeft: scrollPosition },
+        600
+      );
+    }
+  });
+  $("#carouselExampleControls .carousel-control-prev").on("click", function () {
+    if (scrollPosition > 0) {
+      scrollPosition -= cardWidth;
+      $("#carouselExampleControls .carousel-inner").animate(
+        { scrollLeft: scrollPosition },
+        600
+      );
+    }
+  });
+} else {
+  $(multipleCardCarousel).addClass("slide");
+}
 
 
-  
-
-  document.addEventListener('mousemove', (e) => {	
-    const sqrs = document.querySelectorAll('.item');
-      
-    const mouseX = e.pageX;
-    const mouseY = e.pageY;
-    
-    sqrs.forEach(sqr => {
-      const sqrX = sqr.offsetLeft + 0;
-      const sqrY = sqr.offsetTop + 0;
-  
-      const diffX = mouseX - sqrX;
-      const diffY = mouseY - sqrY;
-      
-      const radians = Math.atan2(diffY, diffX);
-          
-      const angle = radians * 180 / Math.PI;
-      
-      sqr.style.transform = `rotate(${angle}deg)`;
-    })
-    
-  })
-
-  $(document).ready(function () {
-    $('.hover-div').hover(function () {
-        $('.hover-div').stop().fadeTo('fast', 0.3);
-        $(this).stop().fadeTo('fast', 1);
-    }, function () {
-        $('.hover-div').stop().fadeTo('fast', 1);
-    });
+$(document).ready(function () {
+  $('.hover-div').hover(function () {
+      $('.hover-div').stop().fadeTo('fast', 0.3);
+      $(this).stop().fadeTo('fast', 1);
+  }, function () {
+      $('.hover-div').stop().fadeTo('fast', 1);
+  });
 });
