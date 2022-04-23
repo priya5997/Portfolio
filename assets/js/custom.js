@@ -1,4 +1,5 @@
-$( document ).ready(function() {  
+$( document ).ready(function() {
+  $(this).scrollTop(0);  
   $('.wrapper').empty();
   for(let i=0; i<108; i++){
     $('.wrapper').append('<div class="item"></div>');
@@ -48,7 +49,7 @@ $('.sAHTI>button').click(function() {
     current_ele.attr('aria-selected', 'true');
     current_ele.removeClass('jBtKSS');
     current_ele.addClass('deLjYW');
-    current_ele.css('border-left', '2px solid black');
+    current_ele.css('border-left', '2px solid #6a6a6a');
 
     let active_ele_id = active_ele[0]['id'];
     

@@ -226,16 +226,37 @@ body {
   color: #a155b9 !important;
   font-weight: 700;
 }
+
+.navbar-brand img {
+  transition: 2.0s ease;
+  -webkit-transition: 2.0s ease;
+  -moz-transition: 2.0s ease;
+  -ms-transition: 2.0s ease;
+  -o-transition: 2.0s ease;
+}
+.navbar-brand img:hover {
+  transform: rotateY(360deg);
+	-moz-transform: rotateY(360deg);
+	-webkit-transform: rotateY(360deg);
+	transform-origin: center;
+	-moz-transform-origin: center;
+	-webkit-transform-origin: center;
+	transition: 2.0s ease;
+	-moz-transition: 2.0s ease;
+	-webkit-transition: 2.0s ease;
+}
 .navbar-wrapper ul li {
   list-style: none;
   display: inline;
-  padding: 0px 20px;
-  color: dimgray;
-  font-weight: 700;
-  cursor: pointer;  
+  padding: 0px 20px;    
   transition: all 0.2s ease-in-out 0s;
 }
-.navbar-wrapper ul li:hover {
+.navbar-wrapper ul li a {
+  color: dimgray;
+  font-weight: 700;
+  cursor: pointer; 
+}
+.navbar-wrapper ul li a:hover {
   color: #165baa;
   cursor: default;  
   transform: translateY(-3px);
@@ -265,7 +286,7 @@ body {
 }
 .main-page-wrapper .about-img-wrapper {
   margin-left: 55%;
-  margin-top: 55%;
+  margin-top: 48%;
 }
 .main-page-wrapper .wrapper {
   z-index: -1;
@@ -278,7 +299,7 @@ body {
   align-items: center;
 }
 .main-page-wrapper .about-img-wrapper img {
-  height: 15rem;
+  height: 18rem;
 }
 .content-wrapper {
   position: relative;
@@ -511,10 +532,10 @@ body {
   width: 100%;
   height: 100px;
   padding: 0px 20px 2px;
-  border-left: 2px solid black;
+  border-left: 2px solid #6a6a6a;
   background-color: transparent;
-  color: black;
-  font-size: 15px;
+  color: #2e2e2e;
+  font-size: 16px;
   text-align: left;
   white-space: nowrap;
 }
@@ -537,7 +558,7 @@ body {
   border-left: 2px solid darkgrey;
   background-color: transparent;
   color: darkgrey;
-  font-size: 15px;
+  font-size: 16px;
   text-align: left;
   white-space: nowrap;
 }
@@ -605,7 +626,7 @@ body {
   margin-bottom: 45px;
   padding-left: 6px;
   font-size: 15px;
-  color: lightgrey;
+  color: black;
 }
 
 .about-page-wrapper #skills .bar-container,
@@ -630,6 +651,7 @@ body {
 
 .about-page-wrapper #skills .pct {
   position: absolute;
+  display: none;
   top: -19px;
   right: 0;
   opacity: 0;
